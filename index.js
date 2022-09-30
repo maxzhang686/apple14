@@ -59,7 +59,7 @@ async function getAppleJSON() {
 
       count = count + 1;
       document.getElementById("count").innerHTML = count;
-      console.log(a, b);
+      //console.log(gold256);
     });
   // const posts = response.json();
   // console.log(posts.data);
@@ -78,4 +78,4 @@ async function getAppleJSON() {
 //     console.log(a, b);
 //   });
 
-setInterval(getAppleJSON, 1500);
+setInterval(getAppleJSON, 1250);
