@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background: #2c2c2c;
+  background: #000000;
 }
 
 h2 {
@@ -58,7 +58,7 @@ button:active {
   border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  background: white;
+  background: rgb(221, 221, 221);
 }
 
 #controls {
@@ -66,7 +66,7 @@ button:active {
   flex-direction: column;
 }
 
-#bonus-life {
+#bonus-life, #bonus-life2, #count {
   font-weight: bold;
   color: white;
   background: #545454;

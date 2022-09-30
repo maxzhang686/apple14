@@ -23,22 +23,28 @@
 //     console.log('Request Failed', error);
 //   }
 // }
+
+var count = 0
+
 async function getAppleJSON() {
   const response = await fetch(
     "https://reserve-prime.apple.com/AU/en_AU/reserve/A/availability.json"
   )
     .then((response) => response.json())
     .then((data) => {
-      let a = data.stores.R483["MQ183ZP/A"].availability.contract;
-      let b = data.stores.R483["MQ233ZP/A"].availability.contract;
-      if (a == true) {
+      let gold256 = data.stores.R483["MQ183ZP/A"].availability.contract;
+      let gold512 = data.stores.R483["MQ233ZP/A"].availability.contract;
+      if (gold256 == true) {
         document.getElementById("bonus-life").style.background = "red";
         document.getElementById("bonus-life").innerHTML = "有!!!!!!!!!";
       }
-      else if ( b == true){
-        document.getElementById("bonus-life").style.background = "red";
-        document.getElementById("bonus-life").innerHTML = "有!!!!!!!!!";
+      else if ( gold512 == true){
+        document.getElementById("bonus-life2").style.background = "red";
+        document.getElementById("bonus-life2").innerHTML = "有!!!!!!!!!";
       }
+
+      count = count + 1;
+      document.getElementById("count").innerHTML = count;
       console.log(a, b);
     });
   // const posts = response.json();
@@ -58,4 +64,4 @@ async function getAppleJSON() {
 //     console.log(a, b);
 //   });
 
-setInterval(getAppleJSON, 1000);
+setInterval(getAppleJSON, 1500);
