@@ -25,6 +25,7 @@
 // }
 
 var count = 0
+const audioJs = new Audio('https://www.w3schools.com/html/horse.mp3')
 
 async function getAppleJSON() {
   const response = await fetch(
@@ -59,6 +60,12 @@ async function getAppleJSON() {
 
       count = count + 1;
       document.getElementById("count").innerHTML = count;
+
+      if(gold256 ==true || gold512 == true ||  purple256 == true || purple512 == true){
+        audioJs.play();
+      }
+
+      //document.getElementById('audio2').play();
       //console.log(gold256);
     });
   // const posts = response.json();
