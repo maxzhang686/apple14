@@ -61,7 +61,7 @@ async function getAppleJSON() {
       count = count + 1;
       document.getElementById("count").innerHTML = count;
 
-      if(gold256 ==true || gold512 == true ||  purple256 == true || purple512 == true){
+      if(gold256 ==true || gold512 == true){
         audioJs.play();
       }
 
