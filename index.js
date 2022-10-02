@@ -40,7 +40,7 @@
 var count = 0
 const audioJs = new Audio('https://www.w3schools.com/html/horse.mp3')
 var countWhite = 0
-
+var countMax = 0
 
 async function getAppleJSON() {
   const response = await fetch(
@@ -85,7 +85,7 @@ async function getWhiteJSON() {
       
       let white256 = data.stores.R483["MQ103ZP/A"].availability.contract;
       let white512 = data.stores.R483["MQ1W3ZP/A"].availability.contract;
-      let goldMax = data.stores.R483["MQ9W3ZP/A"].availability.contract;
+     
 
       if (white256 == true) {
         document.getElementById("bonus-life3").style.background = "red";
@@ -95,33 +95,54 @@ async function getWhiteJSON() {
         document.getElementById("bonus-life4").style.background = "red";
         document.getElementById("bonus-life4").innerHTML = "有!!!!!!!!!";
       }
-      else if ( goldMax == true){
-        document.getElementById("bonus-life5").style.background = "red";
-        document.getElementById("bonus-life5").innerHTML = "有!!!!!!!!!";
-      }
-
       countWhite = countWhite + 1;
       document.getElementById("count2").innerHTML = countWhite;
 
       if(white256 ==true || white512 == true){
         audioJs.play();
       }
-      //audioJs.play();
-      //document.getElementById('audio2').play();
-      //console.log(gold256);
     });
-  // const posts = response.json();
-  // console.log(posts.data);
-  // console.log(posts);
+}
+
+async function getMaxJSON() {
+  const responseMax = await fetch(
+    "https://reserve-prime.apple.com/AU/en_AU/reserve/A/availability.json"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      
+      
+      let goldMax = data.stores.R483["MQ9W3ZP/A"].availability.contract;
+
+      if (goldMax == true) {
+        document.getElementById("bonus-life5").style.background = "red";
+        document.getElementById("bonus-life5").innerHTML = "有!!!!!!!!!";
+        audioJs.play();
+      }
+      countMax = countMax + 1;
+      document.getElementById("count3").innerHTML = countMax;
+
+    });
+
 }
 
 
 
-setInterval(getAppleJSON, 1250);
+//setInterval(getAppleJSON, 1250);
 
 const myInterval = setInterval(getWhiteJSON, 1250);
+const myIntervalGold = setInterval(getAppleJSON, 1250);
+const myIntervalGoldMax = setInterval(getMaxJSON, 1250);
 
 function myStop() {
   clearInterval(myInterval);
+}
+
+function myStopGold() {
+  clearInterval(myIntervalGold);
+}
+
+function myStopGoldMax() {
+  clearInterval(myIntervalGoldMax);
 }
 
