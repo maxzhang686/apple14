@@ -85,7 +85,7 @@ async function getWhiteJSON() {
       
       let white256 = data.stores.R483["MQ103ZP/A"].availability.contract;
       let white512 = data.stores.R483["MQ1W3ZP/A"].availability.contract;
-
+      let goldMax = data.stores.R483["MQ9W3ZP/A"].availability.contract;
 
       if (white256 == true) {
         document.getElementById("bonus-life3").style.background = "red";
@@ -94,6 +94,10 @@ async function getWhiteJSON() {
       else if ( white512 == true){
         document.getElementById("bonus-life4").style.background = "red";
         document.getElementById("bonus-life4").innerHTML = "有!!!!!!!!!";
+      }
+      else if ( goldMax == true){
+        document.getElementById("bonus-life5").style.background = "red";
+        document.getElementById("bonus-life5").innerHTML = "有!!!!!!!!!";
       }
 
       countWhite = countWhite + 1;
