@@ -99,7 +99,8 @@ async function getWhiteJSON() {
       document.getElementById("count2").innerHTML = countWhite;
 
       if(white256 ==true || white512 == true){
-        audioJs.play();
+        //audioJs.play();
+        document.getElementById("audio2").play();
       }
     });
 }
