@@ -42,6 +42,10 @@ const audioJs = new Audio('https://www.w3schools.com/html/horse.mp3')
 var countWhite = 0
 var countMax = 0
 
+document.addEventListener('touchstart', function(){ 
+  audioJs.play();
+}, false);
+
 async function getAppleJSON() {
   const response = await fetch(
     "https://reserve-prime.apple.com/AU/en_AU/reserve/A/availability.json"
@@ -63,7 +67,7 @@ async function getAppleJSON() {
       count = count + 1;
       document.getElementById("count").innerHTML = count;
 
-      if(gold256 ==true || gold512 == true){
+      if(gold256 ==true || gold512 == false){
         audioJs.play();
       }
       //audioJs.play();
@@ -112,9 +116,9 @@ async function getMaxJSON() {
     .then((response) => response.json())
     .then((data) => {
       // let goldMax = data.stores.R483["MQ9W3ZP/A"].availability.contract;
-      let goldMax = data.stores.R483["MQAM3ZP/A"].availability.contract;
+      let Max = data.stores.R483["MQAM3ZP/A"].availability.contract;
 
-      if (goldMax == true) {
+      if (Max == true) {
         document.getElementById("bonus-life5").style.background = "red";
         document.getElementById("bonus-life5").innerHTML = "有!!!!!!!!!";
         // audioJs.play();
@@ -142,6 +146,6 @@ function myStopGold() {
 }
 
 function myStopMax() {
-  clearInterval(myIntervalGoldMax);
+  clearInterval(myIntervalMax);
 }
 
