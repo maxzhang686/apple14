@@ -47,9 +47,6 @@ var countMax = 0
 // }, false);
 
 
-
-
-
 async function getAppleJSON() {
   const response = await fetch(
     "https://reserve-prime.apple.com/AU/en_AU/reserve/A/availability.json"
